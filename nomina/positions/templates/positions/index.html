@@ -1,0 +1,13 @@
+{% extends 'positions/base.html' %}
+
+{% block content %}
+  <h1>Positions</h1>
+  <a href="{% url 'position_create' %}">New Position</a>
+  <ul>
+    {% for position in positions %}
+      <li>
+        <a href="{% url 'position_detail' position.pk %}">{{ position.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
