@@ -4,4 +4,4 @@ from .models import Position
 class PositionForm(forms.ModelForm):
     class Meta:
         model = Position
-        fields = ['name', 'riskLevel', 'minimumSalary', 'maximumSalary']
+        fields = ['name', 'risk_level', 'minimum_salary', 'maximum_salary']

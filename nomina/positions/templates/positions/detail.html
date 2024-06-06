@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>{{ position.name }}</h1>
-  <p>Risk Level: {{ position.riskLevel }}</p>
-  <p>Minimum Salary: {{ position.minimumSalary }}</p>
-  <p>Maximum Salary: {{ position.maximumSalary }}</p>
+  <p>Risk Level: {{ position.risk_level }}</p>
+  <p>Minimum Salary: {{ position.minimum_salary }}</p>
+  <p>Maximum Salary: {{ position.maximum_salary }}</p>
   <a href="{% url 'position_update' position.pk %}">Edit</a>
   <a href="{% url 'position_delete' position.pk %}">Delete</a>
   <a href="{% url 'position_list' %}">Back to list</a>
