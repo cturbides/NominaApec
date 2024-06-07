@@ -1,0 +1,13 @@
+{% extends 'incomes/base.html' %}
+
+{% block title %}Income Detail{% endblock %}
+
+{% block content %}
+  <h1>{{ income.name }}</h1>
+  <p>State: {{ income.get_state_display }}</p>
+  <p>Position: {{ income.position }}</p>
+  <p>Depends on Salary: {{ income.depend_on_salary }}</p>
+  <a href="{% url 'income_update' income.pk %}">Edit</a>
+  <a href="{% url 'income_delete' income.pk %}">Delete</a>
+  <a href="{% url 'income_list' %}">Back to list</a>
+{% endblock %}

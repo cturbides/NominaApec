@@ -1,0 +1,15 @@
+{% extends 'incomes/base.html' %}
+
+{% block title %}Incomes{% endblock %}
+
+{% block content %}
+  <h1>Incomes</h1>
+  <a href="{% url 'income_create' %}">New Income</a>
+  <ul>
+    {% for income in incomes %}
+      <li>
+        <a href="{% url 'income_detail' income.pk %}">{{ income.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Sistema de Nómina{% endblock %}</title>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endcomment %}
+</head>
+<body>
+    <header>
+        <h1>Sistema de Nómina</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'income_list' %}">Incomes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Sistema de Nómina</p>
+    </footer>
+</body>
+</html>

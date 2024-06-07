@@ -1,0 +1,13 @@
+{% extends 'incomes/base.html' %}
+
+{% block title %}New Income{% endblock %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Income</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'income_list' %}">Back to list</a>
+{% endblock %}
