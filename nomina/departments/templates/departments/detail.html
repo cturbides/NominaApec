@@ -1,0 +1,12 @@
+{% extends 'departments/base.html' %}
+
+{% block title %}Department Detail{% endblock %}
+
+{% block content %}
+  <h1>{{ department.name }}</h1>
+  <p>Physical Ubication: {{ department.physical_ubication }}</p>
+  <p>Area Responsible: {{ department.area_responsible }}</p>
+  <a href="{% url 'department_update' department.pk %}">Edit</a>
+  <a href="{% url 'department_delete' department.pk %}">Delete</a>
+  <a href="{% url 'department_list' %}">Back to list</a>
+{% endblock %}

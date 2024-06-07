@@ -1,0 +1,13 @@
+{% extends 'departments/base.html' %}
+
+{% block title %}New Department{% endblock %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Department</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'department_list' %}">Back to list</a>
+{% endblock %}
