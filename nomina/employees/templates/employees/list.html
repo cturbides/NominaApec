@@ -1,0 +1,15 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}Employees{% endblock %}
+
+{% block content %}
+  <h1>Employees</h1>
+  <a href="{% url 'employee_create' %}">New Employee</a>
+  <ul>
+    {% for employee in employees %}
+      <li>
+        <a href="{% url 'employee_detail' employee.pk %}">{{ employee.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
