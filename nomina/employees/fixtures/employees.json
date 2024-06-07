@@ -1,0 +1,332 @@
+[
+    {
+        "model": "employees.employee",
+        "pk": 1,
+        "fields": {
+            "name": "Juan Pérez",
+            "department": 1,
+            "position": 1,
+            "mensual_salary": "100000.00",
+            "national_id": "123456789012"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 2,
+        "fields": {
+            "name": "María Gómez",
+            "department": 2,
+            "position": 2,
+            "mensual_salary": "80000.00",
+            "national_id": "234567890123"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 3,
+        "fields": {
+            "name": "Pedro Martínez",
+            "department": 3,
+            "position": 3,
+            "mensual_salary": "70000.00",
+            "national_id": "345678901234"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 4,
+        "fields": {
+            "name": "Ana López",
+            "department": 4,
+            "position": 4,
+            "mensual_salary": "50000.00",
+            "national_id": "456789012345"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 5,
+        "fields": {
+            "name": "Carlos Sánchez",
+            "department": 5,
+            "position": 5,
+            "mensual_salary": "60000.00",
+            "national_id": "567890123456"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 6,
+        "fields": {
+            "name": "Laura Fernández",
+            "department": 6,
+            "position": 6,
+            "mensual_salary": "65000.00",
+            "national_id": "678901234567"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 7,
+        "fields": {
+            "name": "José Ramírez",
+            "department": 1,
+            "position": 7,
+            "mensual_salary": "30000.00",
+            "national_id": "789012345678"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 8,
+        "fields": {
+            "name": "Patricia Torres",
+            "department": 2,
+            "position": 8,
+            "mensual_salary": "45000.00",
+            "national_id": "890123456789"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 9,
+        "fields": {
+            "name": "Miguel Rodríguez",
+            "department": 3,
+            "position": 9,
+            "mensual_salary": "50000.00",
+            "national_id": "901234567890"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 10,
+        "fields": {
+            "name": "Sofía Morales",
+            "department": 4,
+            "position": 10,
+            "mensual_salary": "55000.00",
+            "national_id": "012345678901"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 11,
+        "fields": {
+            "name": "Luis Ruiz",
+            "department": 5,
+            "position": 11,
+            "mensual_salary": "35000.00",
+            "national_id": "123450987654"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 12,
+        "fields": {
+            "name": "Gabriela Castro",
+            "department": 6,
+            "position": 12,
+            "mensual_salary": "40000.00",
+            "national_id": "234561098765"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 13,
+        "fields": {
+            "name": "Fernando Rivas",
+            "department": 1,
+            "position": 1,
+            "mensual_salary": "105000.00",
+            "national_id": "345672109876"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 14,
+        "fields": {
+            "name": "Sandra Ortiz",
+            "department": 2,
+            "position": 2,
+            "mensual_salary": "85000.00",
+            "national_id": "456783210987"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 15,
+        "fields": {
+            "name": "Héctor Mendoza",
+            "department": 3,
+            "position": 3,
+            "mensual_salary": "75000.00",
+            "national_id": "567894321098"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 16,
+        "fields": {
+            "name": "Verónica Peña",
+            "department": 4,
+            "position": 4,
+            "mensual_salary": "52000.00",
+            "national_id": "678905432109"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 17,
+        "fields": {
+            "name": "Javier Ponce",
+            "department": 5,
+            "position": 5,
+            "mensual_salary": "62000.00",
+            "national_id": "789016543210"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 18,
+        "fields": {
+            "name": "Natalia Herrera",
+            "department": 6,
+            "position": 6,
+            "mensual_salary": "68000.00",
+            "national_id": "890127654321"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 19,
+        "fields": {
+            "name": "Raúl Vega",
+            "department": 1,
+            "position": 7,
+            "mensual_salary": "31000.00",
+            "national_id": "901238765432"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 20,
+        "fields": {
+            "name": "Mónica Silva",
+            "department": 2,
+            "position": 8,
+            "mensual_salary": "46000.00",
+            "national_id": "012349876543"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 21,
+        "fields": {
+            "name": "Óscar Guerrero",
+            "department": 3,
+            "position": 9,
+            "mensual_salary": "51000.00",
+            "national_id": "123450987643"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 22,
+        "fields": {
+            "name": "Lucía Jiménez",
+            "department": 4,
+            "position": 10,
+            "mensual_salary": "56000.00",
+            "national_id": "234561098754"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 23,
+        "fields": {
+            "name": "Diego Villalobos",
+            "department": 5,
+            "position": 11,
+            "mensual_salary": "36000.00",
+            "national_id": "345672109865"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 24,
+        "fields": {
+            "name": "Valeria Luna",
+            "department": 6,
+            "position": 12,
+            "mensual_salary": "42000.00",
+            "national_id": "456783210976"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 25,
+        "fields": {
+            "name": "Rodrigo Cordero",
+            "department": 1,
+            "position": 1,
+            "mensual_salary": "110000.00",
+            "national_id": "567894321087"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 26,
+        "fields": {
+            "name": "Elena Salas",
+            "department": 2,
+            "position": 2,
+            "mensual_salary": "88000.00",
+            "national_id": "678905432198"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 27,
+        "fields": {
+            "name": "Víctor Mena",
+            "department": 3,
+            "position": 3,
+            "mensual_salary": "77000.00",
+            "national_id": "789016543209"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 28,
+        "fields": {
+            "name": "Isabel Núñez",
+            "department": 4,
+            "position": 4,
+            "mensual_salary": "53000.00",
+            "national_id": "890127654320"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 29,
+        "fields": {
+            "name": "Andrés Flores",
+            "department": 5,
+            "position": 5,
+            "mensual_salary": "64000.00",
+            "national_id": "901238765431"
+        }
+    },
+    {
+        "model": "employees.employee",
+        "pk": 30,
+        "fields": {
+            "name": "Carmen Castillo",
+            "department": 6,
+            "position": 6,
+            "mensual_salary": "69000.00",
+            "national_id": "012349876542"
+        }
+    }
+]

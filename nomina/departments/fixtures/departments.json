@@ -1,0 +1,56 @@
+[
+    {
+        "model": "departments.department",
+        "pk": 1,
+        "fields": {
+            "name": "Recursos Humanos",
+            "physical_ubication": "Edificio A, Planta Baja",
+            "area_responsible": null
+        }
+    },
+    {
+        "model": "departments.department",
+        "pk": 2,
+        "fields": {
+            "name": "Tecnología de la Información",
+            "physical_ubication": "Edificio B, Segundo Piso",
+            "area_responsible": null
+        }
+    },
+    {
+        "model": "departments.department",
+        "pk": 3,
+        "fields": {
+            "name": "Finanzas",
+            "physical_ubication": "Edificio C, Primer Piso",
+            "area_responsible": null
+        }
+    },
+    {
+        "model": "departments.department",
+        "pk": 4,
+        "fields": {
+            "name": "Marketing",
+            "physical_ubication": "Edificio D, Tercer Piso",
+            "area_responsible": null
+        }
+    },
+    {
+        "model": "departments.department",
+        "pk": 5,
+        "fields": {
+            "name": "Operaciones",
+            "physical_ubication": "Edificio E, Planta Baja",
+            "area_responsible": null
+        }
+    },
+    {
+        "model": "departments.department",
+        "pk": 6,
+        "fields": {
+            "name": "Ventas",
+            "physical_ubication": "Edificio F, Segundo Piso",
+            "area_responsible": null
+        }
+    }
+]

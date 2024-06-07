@@ -5,7 +5,12 @@
 {% block content %}
   <h1>{{ income.name }}</h1>
   <p>State: {{ income.get_state_display }}</p>
-  <p>Position: {{ income.position }}</p>
+  <p>Positions:</p>
+  <ul>
+    {% for position in income.positions.all %}
+      <li>{{ position.name }}</li>
+    {% endfor %}
+  </ul>
   <p>Depends on Salary: {{ income.depend_on_salary }}</p>
   <a href="{% url 'income_update' income.pk %}">Edit</a>
   <a href="{% url 'income_delete' income.pk %}">Delete</a>

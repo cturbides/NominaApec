@@ -1,0 +1,122 @@
+[
+    {
+        "model": "positions.position",
+        "pk": 1,
+        "fields": {
+            "name": "Gerente General",
+            "risk_level": 3,
+            "minimum_salary": "80000.00",
+            "maximum_salary": "150000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 2,
+        "fields": {
+            "name": "Gerente de Proyecto",
+            "risk_level": 2,
+            "minimum_salary": "60000.00",
+            "maximum_salary": "120000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 3,
+        "fields": {
+            "name": "Desarrollador Senior",
+            "risk_level": 2,
+            "minimum_salary": "50000.00",
+            "maximum_salary": "100000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 4,
+        "fields": {
+            "name": "Desarrollador Junior",
+            "risk_level": 1,
+            "minimum_salary": "30000.00",
+            "maximum_salary": "70000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 5,
+        "fields": {
+            "name": "Analista de Datos",
+            "risk_level": 2,
+            "minimum_salary": "40000.00",
+            "maximum_salary": "90000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 6,
+        "fields": {
+            "name": "Administrador de Sistemas",
+            "risk_level": 2,
+            "minimum_salary": "45000.00",
+            "maximum_salary": "85000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 7,
+        "fields": {
+            "name": "Soporte Técnico",
+            "risk_level": 1,
+            "minimum_salary": "25000.00",
+            "maximum_salary": "50000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 8,
+        "fields": {
+            "name": "Diseñador UX/UI",
+            "risk_level": 1,
+            "minimum_salary": "35000.00",
+            "maximum_salary": "75000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 9,
+        "fields": {
+            "name": "Especialista en Marketing",
+            "risk_level": 1,
+            "minimum_salary": "40000.00",
+            "maximum_salary": "80000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 10,
+        "fields": {
+            "name": "Contador",
+            "risk_level": 2,
+            "minimum_salary": "45000.00",
+            "maximum_salary": "90000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 11,
+        "fields": {
+            "name": "Analista de Recursos Humanos",
+            "risk_level": 1,
+            "minimum_salary": "30000.00",
+            "maximum_salary": "70000.00"
+        }
+    },
+    {
+        "model": "positions.position",
+        "pk": 12,
+        "fields": {
+            "name": "Secretaria",
+            "risk_level": 1,
+            "minimum_salary": "25000.00",
+            "maximum_salary": "45000.00"
+        }
+    }
+]

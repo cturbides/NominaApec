@@ -1,0 +1,72 @@
+[
+    {
+        "model": "incomes.income",
+        "pk": 1,
+        "fields": {
+            "name": "Salario Base",
+            "depend_on_salary": true,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 2,
+        "fields": {
+            "name": "Horas Extras",
+            "depend_on_salary": true,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 3,
+        "fields": {
+            "name": "Bono de Desempeño",
+            "depend_on_salary": false,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 4,
+        "fields": {
+            "name": "Gratificaciones",
+            "depend_on_salary": false,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 5,
+        "fields": {
+            "name": "Aguinaldo",
+            "depend_on_salary": true,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 6,
+        "fields": {
+            "name": "Prima Vacacional",
+            "depend_on_salary": true,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    },
+    {
+        "model": "incomes.income",
+        "pk": 7,
+        "fields": {
+            "name": "Bonos por Puntualidad",
+            "depend_on_salary": false,
+            "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "state": "Habilitada"
+        }
+    }
+]
