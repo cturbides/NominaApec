@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 class Employee(models.Model):
     id = models.AutoField(verbose_name='employee_id', primary_key=True)
     name = models.CharField(verbose_name='employee_name', max_length=100)
+    department = models.ForeignKey('departments.Department', on_delete=models.SET_NULL, blank=True, null=True, verbose_name='department')
     position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='position')
     mensual_salary = models.DecimalField(verbose_name='mensual_salary', decimal_places=2, max_digits=11)
     national_id = models.CharField(

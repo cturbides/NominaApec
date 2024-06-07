@@ -7,6 +7,7 @@
   <p>National ID: {{ employee.national_id }}</p>
   <p>Position: {{ employee.position }}</p>
   <p>Mensual Salary: {{ employee.mensual_salary }}</p>
+  <p>Department: {{ employee.department }}</p>
   <a href="{% url 'employee_update' employee.pk %}">Edit</a>
   <a href="{% url 'employee_delete' employee.pk %}">Delete</a>
   <a href="{% url 'employee_list' %}">Back to list</a>
