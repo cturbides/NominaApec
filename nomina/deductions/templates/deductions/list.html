@@ -1,0 +1,17 @@
+{% extends 'deductions/base.html' %}
+
+{% block title %}Deductions{% endblock %}
+
+{% block content %}
+<h1>Deductions</h1>
+<a href="{% url 'deduction_create' %}">New Deduction</a>
+<ul>
+    {% for deduction in deductions %}
+    <li>
+        <a href="{% url 'deduction_detail' deduction.pk %}"
+            >{{ deduction.name }}</a
+        >
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

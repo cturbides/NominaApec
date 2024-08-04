@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "incomes.apps.IncomesConfig",
     "employees.apps.EmployeesConfig",
     "departments.apps.DepartmentsConfig",
+    "deductions.apps.DeductionsConfig"
 ]
 
 MIDDLEWARE = [

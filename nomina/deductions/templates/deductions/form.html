@@ -1,0 +1,11 @@
+{% extends 'deductions/base.html' %}
+{% block title %}New Deduction{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Deduction</h1>
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'deduction_list' %}">Back to list</a>
+{% endblock %}
