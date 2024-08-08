@@ -1,0 +1,11 @@
+{% extends 'transactions/base.html' %}
+{% block title %}New Transaction{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Transaction</h1>
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'transaction_list' %}">Back to list</a>
+{% endblock %}

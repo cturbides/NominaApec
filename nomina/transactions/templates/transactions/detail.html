@@ -1,0 +1,26 @@
+{% extends 'transactions/base.html' %}
+{% block title %}Transaction Detail{% endblock %}
+
+{% block content %}
+<h1>{{ transaction }}</h1>
+<p>State: {{ transaction.get_state_display }}</p>
+<p>Employee: {{ transaction.employee }}</p>
+
+{% if transaction.deduction %}
+    <p>Deduction:</p>
+    <ul>
+        {% for position in transaction.deduction.positions.all %}
+        <li>{{ position.name }}</li>
+        {% endfor %}
+    </ul>
+    <p>Depends on Salary: {{ transaction.deduction.depend_on_salary }}</p>
+{% elif transaction.income %}
+    <p>Income: {{ transaction.income.name }}</p>
+{% endif %}
+
+<a href="{% url 'transaction_update' transaction.pk %}">Edit Transaction</a>
+<a href="{% url 'transaction_delete' transaction.pk %}">Delete Transaction</a>
+
+<a href="{% url 'transaction_list' %}">Back to Transactions</a>
+{% endblock %}
+

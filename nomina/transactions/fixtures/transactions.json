@@ -1,0 +1,262 @@
+[
+  {
+    "model": "transactions.transaction",
+    "pk": 1,
+    "fields": {
+      "employee": 1,
+      "datetime": "2024-08-08T10:00:00Z",
+      "amount": "1500.00",
+      "income": 1,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 2,
+    "fields": {
+      "employee": 2,
+      "datetime": "2024-08-07T15:30:00Z",
+      "amount": "200.00",
+      "income": null,
+      "deduction": 1,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 3,
+    "fields": {
+      "employee": 3,
+      "datetime": "2024-08-06T12:45:00Z",
+      "amount": "500.00",
+      "income": null,
+      "deduction": 2,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 4,
+    "fields": {
+      "employee": 4,
+      "datetime": "2024-08-05T08:15:00Z",
+      "amount": "1200.00",
+      "income": 2,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 5,
+    "fields": {
+      "employee": 5,
+      "datetime": "2024-08-04T14:00:00Z",
+      "amount": "350.00",
+      "income": null,
+      "deduction": 3,
+      "transaction_type": "DEDUCTION",
+      "state": "DISABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 6,
+    "fields": {
+      "employee": 6,
+      "datetime": "2024-08-03T11:30:00Z",
+      "amount": "2500.00",
+      "income": 3,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 7,
+    "fields": {
+      "employee": 7,
+      "datetime": "2024-08-02T09:00:00Z",
+      "amount": "450.00",
+      "income": null,
+      "deduction": 4,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 8,
+    "fields": {
+      "employee": 8,
+      "datetime": "2024-08-01T10:45:00Z",
+      "amount": "800.00",
+      "income": 4,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 9,
+    "fields": {
+      "employee": 9,
+      "datetime": "2024-07-31T16:30:00Z",
+      "amount": "600.00",
+      "income": null,
+      "deduction": 5,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 10,
+    "fields": {
+      "employee": 10,
+      "datetime": "2024-07-30T13:15:00Z",
+      "amount": "1100.00",
+      "income": 5,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 11,
+    "fields": {
+      "employee": 1,
+      "datetime": "2024-07-29T08:00:00Z",
+      "amount": "300.00",
+      "income": null,
+      "deduction": 6,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 12,
+    "fields": {
+      "employee": 2,
+      "datetime": "2024-07-28T17:30:00Z",
+      "amount": "900.00",
+      "income": 6,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 13,
+    "fields": {
+      "employee": 3,
+      "datetime": "2024-07-27T11:15:00Z",
+      "amount": "700.00",
+      "income": null,
+      "deduction": 7,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 14,
+    "fields": {
+      "employee": 4,
+      "datetime": "2024-07-26T09:45:00Z",
+      "amount": "1300.00",
+      "income": 7,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 15,
+    "fields": {
+      "employee": 5,
+      "datetime": "2024-07-25T14:30:00Z",
+      "amount": "400.00",
+      "income": null,
+      "deduction": 7,
+      "transaction_type": "DEDUCTION",
+      "state": "DISABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 16,
+    "fields": {
+      "employee": 6,
+      "datetime": "2024-07-24T07:00:00Z",
+      "amount": "1600.00",
+      "income": 3,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 17,
+    "fields": {
+      "employee": 7,
+      "datetime": "2024-07-23T10:30:00Z",
+      "amount": "500.00",
+      "income": null,
+      "deduction": 2,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 18,
+    "fields": {
+      "employee": 8,
+      "datetime": "2024-07-22T15:00:00Z",
+      "amount": "1400.00",
+      "income": 2,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 19,
+    "fields": {
+      "employee": 9,
+      "datetime": "2024-07-21T12:00:00Z",
+      "amount": "550.00",
+      "income": null,
+      "deduction": 1,
+      "transaction_type": "DEDUCTION",
+      "state": "ENABLED"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 20,
+    "fields": {
+      "employee": 10,
+      "datetime": "2024-07-20T14:30:00Z",
+      "amount": "1750.00",
+      "income": 1,
+      "deduction": null,
+      "transaction_type": "INCOME",
+      "state": "ENABLED"
+    }
+  }
+]
