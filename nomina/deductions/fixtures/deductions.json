@@ -1,0 +1,72 @@
+[
+  {
+    "model": "deductions.deduction",
+    "pk": 1,
+    "fields": {
+      "name": "Impuesto sobre la Renta",
+      "depend_on_salary": true,
+      "positions": [1, 2, 3, 4, 5],
+      "state": "Habilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 2,
+    "fields": {
+      "name": "Seguro Social",
+      "depend_on_salary": true,
+      "positions": [1, 2, 3, 4, 6, 7],
+      "state": "Habilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 3,
+    "fields": {
+      "name": "Pensión Alimenticia",
+      "depend_on_salary": false,
+      "positions": [2, 4, 5, 7, 8],
+      "state": "Habilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 4,
+    "fields": {
+      "name": "Fondo de Ahorro",
+      "depend_on_salary": true,
+      "positions": [1, 3, 5, 7, 9, 10],
+      "state": "Habilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 5,
+    "fields": {
+      "name": "Crédito Hipotecario",
+      "depend_on_salary": false,
+      "positions": [2, 4, 6, 8, 10],
+      "state": "Deshabilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 6,
+    "fields": {
+      "name": "Préstamo Personal",
+      "depend_on_salary": true,
+      "positions": [1, 3, 6, 7, 11, 12],
+      "state": "Habilitada"
+    }
+  },
+  {
+    "model": "deductions.deduction",
+    "pk": 7,
+    "fields": {
+      "name": "Multa por Retardo",
+      "depend_on_salary": false,
+      "positions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "state": "Habilitada"
+    }
+  }
+]
