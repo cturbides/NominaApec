@@ -1,17 +1,48 @@
-{% extends 'deductions/base.html' %}
-{% block title %}Deduction Detail{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Deducciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/deductions/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>{{ deduction.name }}</h1>
-<p>State: {{ deduction.get_state_display }}</p>
-<p>Positions:</p>
-<ul>
-    {% for position in deduction.positions.all %}
-    <li>{{ position.name }}</li>
-    {% endfor %}
-</ul>
-<p>Depends on Salary: {{ deduction.depend_on_salary }}</p>
-<a href="{% url 'deduction_update' deduction.pk %}">Edit</a>
-<a href="{% url 'deduction_delete' deduction.pk %}">Delete</a>
-<a href="{% url 'deduction_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Deducciones</h1>
+        <a href="{% url 'deduction_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="deduction-detail">
+      <div class="deduction-info">
+        <div class="info-row">
+          <span class="label">Nombre de la deducción:</span>
+          <span class="value">{{ deduction.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Estado:</span>
+          <span class="value">{{ deduction.get_state_display }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Depende del salario:</span>
+          <span class="value">{{ deduction.depend_on_salary|yesno:"Sí,No" }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Posiciones aplicables:</span>
+          <span class="value">
+            {% for position in deduction.positions.all %}
+              {{ position.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'deduction_update' deduction.pk %}" class="edit-button">Editar deducción</a>
+      <a href="{% url 'deduction_delete' deduction.pk %}" class="delete-button">Eliminar deducción</a>
+    </div>
+  </div>
 {% endblock %}
+

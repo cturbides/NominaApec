@@ -1,17 +1,39 @@
-{% extends 'deductions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Deductions{% endblock %}
+{% block title %}Deducciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/deductions/list.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>Deductions</h1>
-<a href="{% url 'deduction_create' %}">New Deduction</a>
-<ul>
-    {% for deduction in deductions %}
-    <li>
-        <a href="{% url 'deduction_detail' deduction.pk %}"
-            >{{ deduction.name }}</a
-        >
-    </li>
-    {% endfor %}
-</ul>
+  <div class="main_cont">
+    <div class="main_header">
+        <h1>Deducciones</h1>
+        <a href="{% url 'deduction_create' %}" class="create-button">Crear deducción</a>
+    </div>
+    
+    <ul class="deduction-list">
+        {% for deduction in deductions %}
+        <li class="deduction-item">
+            <a href="{% url 'deduction_detail' deduction.pk %}">
+                <div class="deduction-info">
+                    <strong>{{ deduction.name }}</strong>
+                    <p>
+                        {% if deduction.state == 'Habilitada' %}
+                            Habilitado
+                        {% else %}
+                            Deshabilitado
+                        {% endif %} 
+                        - {% if deduction.depend_on_salary %}Depende del salario{% else %}No depende del salario{% endif %} 
+                        - Aplica a {{ deduction.positions.count }} posiciones
+                    </p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
+

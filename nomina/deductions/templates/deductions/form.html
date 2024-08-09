@@ -1,11 +1,55 @@
-{% extends 'deductions/base.html' %}
-{% block title %}New Deduction{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ form.instance.pk|yesno:"Editar,Crear" }} Deducción{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/deductions/form.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Deduction</h1>
-<form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'deduction_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>{{ form.instance.pk|yesno:"Editar,Crear" }} Deducción</h1>
+        <a href="{% url 'deduction_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+
+    <div class="deduction-detail">
+      <form method="post" class="deduction-info">
+        {% csrf_token %}
+        <div class="info-row">
+          <label class="label" for="id_name">Nombre de la deducción:</label>
+          <input type="text" name="name" id="id_name" class="value" value="{{ form.name.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_state">Estado:</label>
+          <select name="state" id="id_state" class="value">
+            {% for option in form.state.field.choices %}
+              <option value="{{ option.0 }}" {% if option.0 == form.state.value %}selected{% endif %}>
+                {{ option.1 }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_depend_on_salary">Depende del salario:</label>
+          <label class="custom-checkbox">
+            <input type="checkbox" name="depend_on_salary" id="id_depend_on_salary" class="value" {% if form.depend_on_salary.value %}checked{% endif %}>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_positions">Posiciones:</label>
+          <div class="value">
+            {{ form.positions }}
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="edit-button">Guardar</button>
+          <a href="{% url 'deduction_list' %}" class="cancel-button">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+
