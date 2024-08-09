@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nómina{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/pdf/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="payroll-container">
+    <div class="main_header">
+        <h1>Nómina</h1>
+    </div>
+    
+    <div class="payroll-form">
+        <form method="get" action="{% url 'generate_payroll_pdf' %}">
+        {% csrf_token %}
+        <div class="date-row">
+          <div class="date-input">
+            <label for="start_date">Fecha de inicio</label>
+            <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+          </div>
+          <div class="date-input">
+            <label for="end_date">Fecha final</label>
+            <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+          </div>
+        </div>
+
+        <div class="checkbox-row">
+          <label class="checkbox-container">
+            <input type="checkbox" name="include_deductions" {% if include_deductions %}checked{% endif %}>
+            Tomar en cuenta las deducciones
+            <span class="checkmark"></span>
+          </label>
+          <label class="checkbox-container">
+            <input type="checkbox" name="include_incomes" {% if include_incomes %}checked{% endif %}>
+            Tomar en cuenta los ingresos
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <button type="submit" class="generate-button">Generar nómina</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+

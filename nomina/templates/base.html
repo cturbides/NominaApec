@@ -89,8 +89,10 @@
                             Transacciones
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}">
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'pdf_index' %}active{% endif %}"
+                    >
+                        <a href="{% url 'pdf_index' %}">
                             <img
                                 src="{% static 'icons/nomina.svg' %}"
                                 alt="Nómina"

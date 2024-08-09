@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "deductions.apps.DeductionsConfig",
     "transactions.apps.TransactionsConfig",
     "home.apps.HomeConfig",
+    "pdf.apps.PdfConfig",
 ]
 
 MIDDLEWARE = [
