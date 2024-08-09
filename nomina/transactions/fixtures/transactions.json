@@ -5,7 +5,7 @@
     "fields": {
       "employee": 1,
       "datetime": "2024-08-08T10:00:00Z",
-      "amount": "1500.00",
+      "amount": "50000.00",
       "income": 1,
       "deduction": null,
       "transaction_type": "INCOME",

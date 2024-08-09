@@ -21,7 +21,7 @@
             <a href="{% url 'transaction_detail' transaction.pk %}">
                 <div class="transaction-info">
                     <strong>
-                        <img src="{% static 'icons/' %}{% if transaction.transaction_type == 'INCOME' %}green_up_arrow.svg{% else %}red_down_arrow.svg{% endif %}" alt="{{ transaction.transaction_type }}" class="transaction-icon">
+                        <img src="{% static 'icons/' %}{% if transaction.transaction_type == 'INCOME' or transaction.transaction_type == 'Ingreso' or transaction.transaction_type == 'Income' %}green_up_arrow.svg{% else %}red_down_arrow.svg{% endif %}" alt="{{ transaction.transaction_type }}" class="transaction-icon">
                         {{ transaction.amount|floatformat:2|intcomma }}$ - 
                         {% if transaction.income %}
                             {{ transaction.income.name }}
