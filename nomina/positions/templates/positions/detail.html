@@ -1,11 +1,45 @@
-{% extends 'positions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Posiciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/positions/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{{ position.name }}</h1>
-  <p>Risk Level: {{ position.risk_level }}</p>
-  <p>Minimum Salary: {{ position.minimum_salary }}</p>
-  <p>Maximum Salary: {{ position.maximum_salary }}</p>
-  <a href="{% url 'position_update' position.pk %}">Edit</a>
-  <a href="{% url 'position_delete' position.pk %}">Delete</a>
-  <a href="{% url 'position_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Posiciones</h1>
+        <a href="{% url 'position_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="position-detail">
+      <div class="position-info">
+        <div class="info-row">
+          <span class="label">Nombre de la posición:</span>
+          <span class="value">{{ position.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Nivel de riesgo:</span>
+          <span class="value">{{ position.risk_level }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Salario mínimo:</span>
+          <span class="value">{{ position.minimum_salary|floatformat:2|intcomma }}$</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Salario máximo:</span>
+          <span class="value">{{ position.maximum_salary|floatformat:2|intcomma }}$</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'position_update' position.pk %}" class="edit-button">Editar posición</a>
+      <a href="{% url 'position_delete' position.pk %}" class="delete-button">Eliminar posición</a>
+    </div>
+  </div>
 {% endblock %}
+

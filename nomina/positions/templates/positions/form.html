@@ -1,11 +1,45 @@
-{% extends 'positions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{{ form.instance.pk|yesno:"Editar,Crear" }} Posición{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/positions/form.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>New Position</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-  </form>
-  <a href="{% url 'position_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>{{ form.instance.pk|yesno:"Editar,Crear" }} Posición</h1>
+        <a href="{% url 'position_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+
+    <div class="position-detail">
+      <form method="post" class="position-info">
+        {% csrf_token %}
+        <div class="info-row">
+          <label class="label" for="id_name">Nombre de la posición:</label>
+          <input type="text" name="name" id="id_name" class="value" value="{{ form.name.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_risk_level">Nivel de riesgo:</label>
+          <input type="number" name="risk_level" id="id_risk_level" class="value" value="{{ form.risk_level.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_minimum_salary">Salario mínimo:</label>
+          <input type="number" name="minimum_salary" id="id_minimum_salary" class="value" value="{{ form.minimum_salary.value|floatformat:2 }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_maximum_salary">Salario máximo:</label>
+          <input type="number" name="maximum_salary" id="id_maximum_salary" class="value" value="{{ form.maximum_salary.value|floatformat:2 }}">
+        </div>
+        <div class="actions">
+          <button type="submit" class="edit-button">Guardar</button>
+          <a href="{% url 'position_list' %}" class="cancel-button">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+

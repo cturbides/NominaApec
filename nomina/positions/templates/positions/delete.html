@@ -1,11 +1,26 @@
-{% extends 'positions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Eliminar Posición{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/positions/delete.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Delete Position</h1>
-  <p>Are you sure you want to delete "{{ position.name }}"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-  </form>
-  <a href="{% url 'position_list' %}">Cancel</a>
+  <div class="delete-container">
+    <div class="main_header">
+        <h1>Eliminar Posición</h1>
+        <a href="{% url 'position_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <p class="confirmation-text">¿Estás seguro que deseas eliminar la posición "{{ position.name }}"?</p>
+    
+    <form method="post" class="delete-form">
+      {% csrf_token %}
+      <button type="submit" class="delete-button">Sí, eliminar</button>
+      <a href="{% url 'position_list' %}" class="cancel-button">Cancelar</a>
+    </form>
+  </div>
 {% endblock %}
+

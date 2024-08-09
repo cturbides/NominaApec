@@ -1,13 +1,32 @@
-{% extends 'positions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Posiciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/positions/index.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Positions</h1>
-  <a href="{% url 'position_create' %}">New Position</a>
-  <ul>
-    {% for position in positions %}
-      <li>
-        <a href="{% url 'position_detail' position.pk %}">{{ position.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="main_cont">
+    <div class="main_header">
+        <h1>Posiciones</h1>
+        <a href="{% url 'position_create' %}" class="create-button">Crear posición</a>
+    </div>
+    
+    <ul class="position-list">
+        {% for position in positions %}
+        <li class="position-item">
+            <a href="{% url 'position_detail' position.pk %}">
+                <div class="position-info">
+                    <strong>{{ position.name }}</strong>
+                    <p>{{ position.minimum_salary|floatformat:2|intcomma }}$ - {{ position.maximum_salary|floatformat:2|intcomma }}$</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
+
