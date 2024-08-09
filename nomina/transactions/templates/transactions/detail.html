@@ -1,26 +1,64 @@
-{% extends 'transactions/base.html' %}
-{% block title %}Transaction Detail{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Transacciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/transactions/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>{{ transaction }}</h1>
-<p>State: {{ transaction.get_state_display }}</p>
-<p>Employee: {{ transaction.employee }}</p>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Transacciones</h1>
+        <a href="{% url 'transaction_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="transaction-detail">
+      <div class="transaction-info">
+        <div class="info-row">
+          <span class="label">ID de la Transacción:</span>
+          <span class="value">T{{ transaction.pk|stringformat:"06d" }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Empleado:</span>
+          <span class="value">{{ transaction.employee.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Monto:</span>
+          <span class="value">{{ transaction.amount|floatformat:2|intcomma }}$</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Estado:</span>
+          <span class="value">{{ transaction.get_state_display }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Fecha y Hora:</span>
+          <span class="value">{{ transaction.datetime|date:"Y/m/d H:i" }}</span>
+        </div>
+        <div class="info-row">
+          {% if transaction.income %}
+            <span class="label">Ingreso:</span>
+            <span class="value">{{ transaction.income.name }}</span>
+          {% elif transaction.deduction %}
+            <span class="label">Deducción:</span>
+            <span class="value">{{ transaction.deduction.name }}</span>
+          {% endif %}
+        </div>
+        {% if transaction.deduction %}
+        <div class="info-row">
+          <span class="label">Depende del salario:</span>
+          <span class="value">{{ transaction.deduction.depend_on_salary|yesno:"Sí,No" }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
 
-{% if transaction.deduction %}
-    <p>Deduction:</p>
-    <ul>
-        {% for position in transaction.deduction.positions.all %}
-        <li>{{ position.name }}</li>
-        {% endfor %}
-    </ul>
-    <p>Depends on Salary: {{ transaction.deduction.depend_on_salary }}</p>
-{% elif transaction.income %}
-    <p>Income: {{ transaction.income.name }}</p>
-{% endif %}
-
-<a href="{% url 'transaction_update' transaction.pk %}">Edit Transaction</a>
-<a href="{% url 'transaction_delete' transaction.pk %}">Delete Transaction</a>
-
-<a href="{% url 'transaction_list' %}">Back to Transactions</a>
+    <div class="actions">
+      <a href="{% url 'transaction_update' transaction.pk %}" class="edit-button">Editar transacción</a>
+      <a href="{% url 'transaction_delete' transaction.pk %}" class="delete-button">Eliminar transacción</a>
+    </div>
+  </div>
 {% endblock %}
 

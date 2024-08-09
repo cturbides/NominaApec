@@ -1,11 +1,89 @@
-{% extends 'transactions/base.html' %}
-{% block title %}New Transaction{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{{ form.instance.pk|yesno:"Editar,Crear" }} Transacción{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/transactions/form.css' %}" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let dateTimeField = document.getElementById('id_datetime');
+            if(!dateTimeField.value) {
+                let now = new Date();
+                let formattedDateTime = now.toISOString().slice(0,16);
+                dateTimeField.value = formattedDateTime;
+            }
+        });
+    </script>
+{% endblock %}
 
 {% block content %}
-<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Transaction</h1>
-<form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'transaction_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>{{ form.instance.pk|yesno:"Editar,Crear" }} Transacción</h1>
+        <a href="{% url 'transaction_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+
+    <div class="transaction-detail">
+      <form method="post" class="transaction-info">
+        {% csrf_token %}
+        <div class="info-row">
+          <label class="label" for="id_employee">Empleado:</label>
+          <select name="employee" id="id_employee" class="value">
+            {% for option in form.employee.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.employee.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_datetime">Fecha y hora:</label>
+          <input type="datetime-local" name="datetime" id="id_datetime" class="value" value="{{ form.datetime.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_amount">Monto:</label>
+          <input type="number" name="amount" id="id_amount" class="value" value="{{ form.amount.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_income">Ingreso (si aplica):</label>
+          <select name="income" id="id_income" class="value">
+            <option value="">Seleccione un ingreso</option>
+            {% for option in form.income.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.income.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_deduction">Deducción (si aplica):</label>
+          <select name="deduction" id="id_deduction" class="value">
+            <option value="">Seleccione una deducción</option>
+            {% for option in form.deduction.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.deduction.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_state">Estado:</label>
+          <select name="state" id="id_state" class="value">
+            {% for option in form.state.field.choices %}
+              <option value="{{ option.0 }}" {% if option.0 == form.state.value %}selected{% endif %}>
+                {{ option.1 }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="actions">
+          <button type="submit" class="edit-button">Guardar</button>
+          <a href="{% url 'transaction_list' %}" class="cancel-button">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+

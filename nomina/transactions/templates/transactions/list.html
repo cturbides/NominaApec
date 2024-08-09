@@ -1,17 +1,42 @@
-{% extends 'transactions/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
 
-{% block title %}Transactions{% endblock %}
+{% block title %}Transacciones{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/transactions/list.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>Transactions</h1>
-<a href="{% url 'transaction_create' %}">New Transactions</a>
-<ul>
-    {% for transaction in transactions %}
-    <li>
-        <a href="{% url 'transaction_detail' transaction.pk %}"
-            >{{ transaction }}</a
-        >
-    </li>
-    {% endfor %}
-</ul>
+  <div class="main_cont">
+    <div class="main_header">
+        <h1>Transacciones</h1>
+        <a href="{% url 'transaction_create' %}" class="create-button">Crear transacción</a>
+    </div>
+    
+    <ul class="transaction-list">
+        {% for transaction in transactions %}
+        <li class="transaction-item">
+            <a href="{% url 'transaction_detail' transaction.pk %}">
+                <div class="transaction-info">
+                    <strong>
+                        <img src="{% static 'icons/' %}{% if transaction.transaction_type == 'INCOME' %}green_up_arrow.svg{% else %}red_down_arrow.svg{% endif %}" alt="{{ transaction.transaction_type }}" class="transaction-icon">
+                        {{ transaction.amount|floatformat:2|intcomma }}$ - 
+                        {% if transaction.income %}
+                            {{ transaction.income.name }}
+                        {% else %}
+                            {{ transaction.deduction.name }}
+                        {% endif %}
+                    </strong>
+                    <p>
+                        {{ transaction.state|yesno:"Aprobada,Desaprobada" }} - {{ transaction.employee.name }} - {{ transaction.datetime|date:"Y/m/d" }} - T{{ transaction.pk|stringformat:"06d" }}
+                    </p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
+
