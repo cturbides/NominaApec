@@ -1,18 +1,48 @@
-{% extends 'incomes/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Income Detail{% endblock %}
+{% block title %}Ingresos{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/incomes/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{{ income.name }}</h1>
-  <p>State: {{ income.get_state_display }}</p>
-  <p>Positions:</p>
-  <ul>
-    {% for position in income.positions.all %}
-      <li>{{ position.name }}</li>
-    {% endfor %}
-  </ul>
-  <p>Depends on Salary: {{ income.depend_on_salary }}</p>
-  <a href="{% url 'income_update' income.pk %}">Edit</a>
-  <a href="{% url 'income_delete' income.pk %}">Delete</a>
-  <a href="{% url 'income_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Ingresos</h1>
+        <a href="{% url 'income_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="income-detail">
+      <div class="income-info">
+        <div class="info-row">
+          <span class="label">Nombre del ingreso:</span>
+          <span class="value">{{ income.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Estado:</span>
+          <span class="value">{{ income.get_state_display }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Depende del salario:</span>
+          <span class="value">{{ income.depend_on_salary|yesno:"Sí,No" }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Posiciones aplicables:</span>
+          <span class="value">
+            {% for position in income.positions.all %}
+              {{ position.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'income_update' income.pk %}" class="edit-button">Editar ingreso</a>
+      <a href="{% url 'income_delete' income.pk %}" class="delete-button">Eliminar ingreso</a>
+    </div>
+  </div>
 {% endblock %}
+

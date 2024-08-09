@@ -1,15 +1,39 @@
-{% extends 'incomes/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Incomes{% endblock %}
+{% block title %}Ingresos{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/incomes/list.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Incomes</h1>
-  <a href="{% url 'income_create' %}">New Income</a>
-  <ul>
-    {% for income in incomes %}
-      <li>
-        <a href="{% url 'income_detail' income.pk %}">{{ income.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="main_cont">
+    <div class="main_header">
+        <h1>Ingresos</h1>
+        <a href="{% url 'income_create' %}" class="create-button">Crear ingreso</a>
+    </div>
+    
+    <ul class="income-list">
+        {% for income in incomes %}
+        <li class="income-item">
+            <a href="{% url 'income_detail' income.pk %}">
+                <div class="income-info">
+                    <strong>{{ income.name }}</strong>
+                    <p>
+                        {% if income.state == 'Habilitada' %}
+                            Habilitado
+                        {% else %}
+                            Deshabilitado
+                        {% endif %} 
+                        - {% if income.depend_on_salary %}Depende del salario{% else %}No depende del salario{% endif %} 
+                        - Aplica a {{ income.positions.count }} posiciones
+                    </p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
+
