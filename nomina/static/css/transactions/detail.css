@@ -71,8 +71,8 @@
 
 .actions {
     display: flex;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: auto;
     justify-content: space-between;
 }
@@ -83,13 +83,15 @@
     font-size: 14px;
     min-width: 100px;
     max-width: 200px;
-    padding: 10px 5vw;
+    padding: min(2vh, 10px) min(5vw, 80px);
     border-radius: 8px;
     display: inline-block;
     text-decoration: none;
+    text-align: center;
 }
 
 .edit-button {
+    margin-right: 20px;
     background-color: #4a5568;
 }
 
@@ -98,6 +100,7 @@
 }
 
 .delete-button {
+    margin-left: 20px;
     background-color: #c53030;
 }
 

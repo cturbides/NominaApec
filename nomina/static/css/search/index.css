@@ -49,6 +49,7 @@ form {
 .parameters-container {
     gap: 10px;
     width: 80%;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -58,6 +59,7 @@ form {
     gap: 10px;
     padding: 15px;
     display: flex;
+    max-width: 700px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
     justify-content: space-between;
@@ -108,7 +110,7 @@ form {
     display: inline-block;
     max-width: 700px;
     width: min(80%, 700px);
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     margin-bottom: 30px;
     background-color: #e2e8f0;
@@ -123,7 +125,7 @@ form {
     gap: 20px;
     width: 80%;
     display: flex;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     flex-direction: row;
     align-items: center;
@@ -143,7 +145,7 @@ form {
 
 .parameter .remove-button {
     top: 15px;
-    right: -90px;
+    right: -30px;
     border: none;
     color: #c53030;
     cursor: pointer;

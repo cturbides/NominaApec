@@ -53,7 +53,7 @@ def generate_payroll_pdf(request):
 
         p.drawString(50, y - 20, "Total Ingresos:")
         p.drawString(400, y - 20, f"{total_incomes:,.2f}$")
-        y -= 40
+        y -= 70
 
     if include_deductions:
         p.setFont("Helvetica-Bold", 12)
