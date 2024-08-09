@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Consultar{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/search/index.css' %}" />
+    <script>
+        var get_options_url = "{{ get_options_url }}";
+    </script>
+    <script src="{% static 'js/search.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <form method="get" action="{% url 'search_results' %}" id="search-form">
+        <div class="main_header">
+            <h1>Consultar</h1>
+            <button type="submit" class="search-button">Buscar</button>
+        </div>
+
+        <div id="parameters-container" class="parameters-container">
+            <!-- Los parámetros se generarán dinámicamente con JS -->
+        </div>
+
+        <button type="button" id="add-parameter" class="add-parameter">+</button>
+
+        <div class="options">
+            <label>
+                <input type="checkbox" name="show_related" />
+                Mostrar relacionados
+            </label>
+            <label>
+                <input type="checkbox" name="show_transactions" />
+                Mostrar transacciones
+            </label>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

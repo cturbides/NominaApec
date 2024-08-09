@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "transactions.apps.TransactionsConfig",
     "home.apps.HomeConfig",
     "pdf.apps.PdfConfig",
+    "search.apps.SearchConfig",
 ]
 
 MIDDLEWARE = [

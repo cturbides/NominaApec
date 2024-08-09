@@ -8,12 +8,6 @@
         <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
     </head>
     <body>
-        <div class="sidebar">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar" />
-            </div>
-        </div>
-
         <div class="container">
             <nav class="nav-menu">
                 <ul>
@@ -90,7 +84,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'home' %}">
+                        <a href="{% url 'search' %}">
                             <img
                                 src="{% static 'icons/search.svg' %}"
                                 alt="Consultar"

@@ -100,8 +100,10 @@
                             Nómina
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}">
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'search' or request.resolver_match.url_name == 'search_results' %}active{% endif %}"
+                    >
+                        <a href="{% url 'search' %}">
                             <img
                                 src="{% static 'icons/search.svg' %}"
                                 alt="Consultar"
@@ -114,10 +116,6 @@
         </div>
 
         <div class="container">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar" />
-            </div>
-
             {% block content %} {% endblock %}
 
             <footer>

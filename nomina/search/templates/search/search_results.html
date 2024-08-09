@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Resultados de la búsqueda{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/search/search_results.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+  <div class="results-container">
+    <h1>Resultados de la búsqueda</h1>
+    <a href="{% url 'search' %}" class="back-link">&lt; Volver atrás</a>
+
+
+    <div class="result-section">
+      <h2>Empleados</h2>
+      {% if employee_results %}
+        <ul>
+          {% for employee in employee_results %}
+            <li>
+              <strong>{{ employee.name }}</strong> - Departamento: {{ employee.department.name }}
+              {% if show_transactions and employee.transaction_set.exists %}
+                <p>Transacciones:</p>
+                <ul>
+                  {% for transaction in employee.transaction_set.all %}
+                    <li>ID: T{{ transaction.pk|stringformat:"06d" }} - {{ transaction }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron empleados relacionados.</p>
+      {% endif %}
+    </div>
+
+    <div class="result-section">
+      <h2>Departamentos</h2>
+      {% if department_results %}
+        <ul>
+          {% for department in department_results %}
+            <li>
+              <strong>{{ department.name }}</strong> - Ubicación: {{ department.physical_ubication }}
+              {% if show_transactions and department.transaction_set.exists %}
+                <p>Transacciones:</p>
+                <ul>
+                  {% for transaction in department.transaction_set.all %}
+                    <li>ID: T{{ transaction.pk|stringformat:"06d" }} - {{ transaction }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron departamentos relacionados.</p>
+      {% endif %}
+    </div>
+
+    <div class="result-section">
+      <h2>Posiciones</h2>
+      {% if position_results %}
+        <ul>
+          {% for position in position_results %}
+            <li>
+              <strong>{{ position.name }}</strong> - Nivel de riesgo: {{ position.risk_level }}
+              {% if show_transactions and position.transaction_set.exists %}
+                <p>Transacciones:</p>
+                <ul>
+                  {% for transaction in position.transaction_set.all %}
+                    <li>ID: T{{ transaction.pk|stringformat:"06d" }} - {{ transaction }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron posiciones relacionadas.</p>
+      {% endif %}
+    </div>
+
+    <div class="result-section">
+      <h2>Deducciones</h2>
+      {% if deduction_results %}
+        <ul>
+          {% for deduction in deduction_results %}
+            <li>
+              <strong>{{ deduction.name }}</strong> - Estado: {{ deduction.state }}
+              {% if show_transactions and deduction.transaction_set.exists %}
+                <p>Transacciones:</p>
+                <ul>
+                  {% for transaction in deduction.transaction_set.all %}
+                    <li>ID: T{{ transaction.pk|stringformat:"06d" }} - {{ transaction }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron deducciones relacionadas.</p>
+      {% endif %}
+    </div>
+
+    <div class="result-section">
+      <h2>Ingresos</h2>
+      {% if income_results %}
+        <ul>
+          {% for income in income_results %}
+            <li>
+              <strong>{{ income.name }}</strong> - Estado: {{ income.state }}
+              {% if show_transactions and income.transaction_set.exists %}
+                <p>Transacciones:</p>
+                <ul>
+                  {% for transaction in income.transaction_set.all %}
+                    <li>ID: T{{ transaction.pk|stringformat:"06d" }} - {{ transaction }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron ingresos relacionados.</p>
+      {% endif %}
+    </div>
+
+  </div>
+{% endblock %}
+
