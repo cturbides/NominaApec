@@ -1,15 +1,31 @@
-{% extends 'employees/base.html' %}
+{% extends 'base.html' %} 
+{% load static %}
 
-{% block title %}Employees{% endblock %}
+{% block title %}Empleados{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/employee/list.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Employees</h1>
-  <a href="{% url 'employee_create' %}">New Employee</a>
-  <ul>
-    {% for employee in employees %}
-      <li>
-        <a href="{% url 'employee_detail' employee.pk %}">{{ employee.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="main_cont">
+    <div class="main_header">
+        <h1>Empleados</h1>
+        <a href="{% url 'employee_create' %}" class="create-button">Crear empleado</a>
+    </div>
+    
+    <ul class="employee-list">
+        {% for employee in employees %}
+        <li class="employee-item">
+            <a href="{% url 'employee_detail' employee.pk %}">
+                <div class="employee-info">
+                    <strong>{{ employee.name }}</strong>
+                    <p>{{ employee.position }} - {{ employee.department }}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
+

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistema de Nómina - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <div class="sidebar">
+            <nav class="nav-menu">
+                <ul>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                    >
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/dashboard.svg' %}"
+                                alt="Dashboard"
+                            />
+                            Dashboard
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'employee_list' or request.resolver_match.url_name == 'employee_detail' or request.resolver_match.url_name == 'employee_create' or request.resolver_match.url_name == 'employee_update' or request.resolver_match.url_name == 'employee_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'employee_list' %}">
+                            <img
+                                src="{% static 'icons/employee.svg' %}"
+                                alt="Empleados"
+                            />
+                            Empleados
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'department_list' or request.resolver_match.url_name == 'department_detail' or request.resolver_match.url_name == 'department_create' or request.resolver_match.url_name == 'department_update' or request.resolver_match.url_name == 'department_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'department_list' %}">
+                            <img
+                                src="{% static 'icons/departments.svg' %}"
+                                alt="Departamentos"
+                            />
+                            Departamentos
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'income_list' or request.resolver_match.url_name == 'income_detail' or request.resolver_match.url_name == 'income_create' or request.resolver_match.url_name == 'income_update' or request.resolver_match.url_name == 'income_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'income_list' %}">
+                            <img
+                                src="{% static 'icons/income.svg' %}"
+                                alt="Ingresos"
+                            />
+                            Ingresos
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'position_list' or request.resolver_match.url_name == 'position_detail' or request.resolver_match.url_name == 'position_create' or request.resolver_match.url_name == 'position_update' or request.resolver_match.url_name == 'position_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'position_list' %}">
+                            <img
+                                src="{% static 'icons/position.svg' %}"
+                                alt="Posición"
+                            />
+                            Posición
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'deduction_list' or request.resolver_match.url_name == 'deduction_detail' or request.resolver_match.url_name == 'deduction_create' or request.resolver_match.url_name == 'deduction_update' or request.resolver_match.url_name == 'deduction_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'deduction_list' %}">
+                            <img
+                                src="{% static 'icons/deductions.svg' %}"
+                                alt="Deducciones"
+                            />
+                            Deducciones
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item {% if request.resolver_match.url_name == 'transaction_list' or request.resolver_match.url_name == 'transaction_detail' or request.resolver_match.url_name == 'transaction_create' or request.resolver_match.url_name == 'transaction_update' or request.resolver_match.url_name == 'transaction_delete' %}active{% endif %}"
+                    >
+                        <a href="{% url 'transaction_list' %}">
+                            <img
+                                src="{% static 'icons/transactions.svg' %}"
+                                alt="Transacciones"
+                            />
+                            Transacciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/nomina.svg' %}"
+                                alt="Nómina"
+                            />
+                            Nómina
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/search.svg' %}"
+                                alt="Consultar"
+                            />
+                            Consultar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar" />
+            </div>
+
+            {% block content %} {% endblock %}
+
+            <footer>
+                <p>&copy; 2024 - Sistema de Nómina</p>
+            </footer>
+        </div>
+    </body>
+</html>

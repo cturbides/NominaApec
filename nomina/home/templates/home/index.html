@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistema de Nómina</title>
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar" />
+            </div>
+        </div>
+
+        <div class="container">
+            <nav class="nav-menu">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/dashboard.svg' %}"
+                                alt="Dashboard"
+                            />
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'employee_list' %}">
+                            <img
+                                src="{% static 'icons/employee.svg' %}"
+                                alt="Empleados"
+                            />
+                            Empleados
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'department_list' %}">
+                            <img
+                                src="{% static 'icons/departments.svg' %}"
+                                alt="Departamentos"
+                            />
+                            Departamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'income_list' %}">
+                            <img
+                                src="{% static 'icons/income.svg' %}"
+                                alt="Ingresos"
+                            />
+                            Ingresos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'position_list' %}">
+                            <img
+                                src="{% static 'icons/position.svg' %}"
+                                alt="Posición"
+                            />
+                            Posición
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'deduction_list' %}">
+                            <img
+                                src="{% static 'icons/deductions.svg' %}"
+                                alt="Deducciones"
+                            />
+                            Deducciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'transaction_list' %}">
+                            <img
+                                src="{% static 'icons/transactions.svg' %}"
+                                alt="Transacciones"
+                            />
+                            Transacciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/nomina.svg' %}"
+                                alt="Nómina"
+                            />
+                            Nómina
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <img
+                                src="{% static 'icons/search.svg' %}"
+                                alt="Consultar"
+                            />
+                            Consultar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>

@@ -1,13 +1,62 @@
-{% extends 'employees/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
 
-{% block title %}New Employee{% endblock %}
+{% block title %}{{ form.instance.pk|yesno:"Editar,Crear" }} Empleado{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/employee/edit.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Employee</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-  </form>
-  <a href="{% url 'employee_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>{{ form.instance.pk|yesno:"Editar,Crear" }} Empleado</h1>
+        <a href="{% url 'employee_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+
+    <div class="employee-detail">
+      <img src="{{ employee.photo_url }}" alt="{{ employee.name }}" class="employee-photo">
+      <form method="post" class="employee-info">
+        {% csrf_token %}
+        <div class="info-row">
+          <label class="label" for="id_name">Nombre:</label>
+          <input type="text" name="name" id="id_name" class="value" value="{{ form.name.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_national_id">Cédula:</label>
+          <input type="text" name="national_id" id="id_national_id" class="value" value="{{ form.national_id.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_position">Posición:</label>
+          <select name="position" id="id_position" class="value">
+            {% for option in form.position.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.position.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_department">Departamento:</label>
+          <select name="department" id="id_department" class="value">
+            {% for option in form.department.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.department.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_mensual_salary">Salario mensual:</label>
+          <input type="text" name="mensual_salary" id="id_mensual_salary" class="value" value="{{ form.mensual_salary.value|floatformat:2|intcomma }}">
+        </div>
+        <div class="actions">
+          <button type="submit" class="edit-button">Guardar</button>
+          <a href="{% url 'employee_list' %}" class="cancel-button">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+

@@ -1,14 +1,50 @@
-{% extends 'employees/base.html' %}
+{% extends 'base.html' %} 
+{% load static %}
+{% load humanize %}
 
-{% block title %}Employee Detail{% endblock %}
+{% block title %}Empleados{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/employee/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{{ employee.name }}</h1>
-  <p>National ID: {{ employee.national_id }}</p>
-  <p>Position: {{ employee.position }}</p>
-  <p>Mensual Salary: {{ employee.mensual_salary }}</p>
-  <p>Department: {{ employee.department }}</p>
-  <a href="{% url 'employee_update' employee.pk %}">Edit</a>
-  <a href="{% url 'employee_delete' employee.pk %}">Delete</a>
-  <a href="{% url 'employee_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Empleados</h1>
+        <a href="{% url 'employee_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="employee-detail">
+      <img src="{{ employee.photo_url }}" alt="{{ employee.name }}" class="employee-photo">
+      <div class="employee-info">
+        <div class="info-row">
+          <span class="label">Nombre:</span>
+          <span class="value">{{ employee.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Cédula:</span>
+          <span class="value">{{ employee.national_id }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Posición:</span>
+          <span class="value">{{ employee.position }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Departamento:</span>
+          <span class="value">{{ employee.department }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Salario mensual:</span>
+          <span class="value">{{ employee.mensual_salary|floatformat:2|intcomma }}$</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'employee_update' employee.pk %}" class="edit-button">Editar empleado</a>
+      <a href="{% url 'employee_delete' employee.pk %}" class="delete-button">Eliminar empleado</a>
+    </div>
+  </div>
 {% endblock %}
+

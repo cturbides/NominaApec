@@ -1,13 +1,26 @@
-{% extends 'employees/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Delete Employee{% endblock %}
+{% block title %}Eliminar Empleado{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/employee/delete.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Delete Employee</h1>
-  <p>Are you sure you want to delete "{{ employee.name }}"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-  </form>
-  <a href="{% url 'employee_list' %}">Cancel</a>
+  <div class="delete-container">
+    <div class="main_header">
+        <h1>Eliminar Empleado</h1>
+        <a href="{% url 'employee_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <p class="confirmation-text">¿Estás seguro que deseas eliminar a "{{ employee.name }}"?</p>
+    
+    <form method="post" class="delete-form">
+      {% csrf_token %}
+      <button type="submit" class="delete-button">Sí, eliminar</button>
+      <a href="{% url 'employee_list' %}" class="cancel-button">Cancelar</a>
+    </form>
+  </div>
 {% endblock %}
+
