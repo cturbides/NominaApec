@@ -15,7 +15,7 @@ class Employee(models.Model):
         verbose_name='national_id',
         validators=[validate_national_id]
     )
-    
+
     def clean(self):
         super().clean()
         if self.mensual_salary < self.position.minimum_salary or self.mensual_salary > self.position.maximum_salary:
