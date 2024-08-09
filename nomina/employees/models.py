@@ -9,6 +9,7 @@ class Employee(models.Model):
     department = models.ForeignKey('departments.Department', on_delete=models.SET_NULL, blank=True, null=True, verbose_name='department')
     position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='position')
     mensual_salary = models.DecimalField(verbose_name='mensual_salary', decimal_places=2, max_digits=11)
+    photo_url = models.CharField(verbose_name='photo_url', max_length=255, blank=True, null=True)
     national_id = models.CharField(
         unique=True,
         max_length=12,

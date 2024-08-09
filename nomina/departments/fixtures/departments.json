@@ -1,56 +1,62 @@
 [
-    {
-        "model": "departments.department",
-        "pk": 1,
-        "fields": {
-            "name": "Recursos Humanos",
-            "physical_ubication": "Edificio A, Planta Baja",
-            "area_responsible": null
-        }
-    },
-    {
-        "model": "departments.department",
-        "pk": 2,
-        "fields": {
-            "name": "Tecnología de la Información",
-            "physical_ubication": "Edificio B, Segundo Piso",
-            "area_responsible": null
-        }
-    },
-    {
-        "model": "departments.department",
-        "pk": 3,
-        "fields": {
-            "name": "Finanzas",
-            "physical_ubication": "Edificio C, Primer Piso",
-            "area_responsible": null
-        }
-    },
-    {
-        "model": "departments.department",
-        "pk": 4,
-        "fields": {
-            "name": "Marketing",
-            "physical_ubication": "Edificio D, Tercer Piso",
-            "area_responsible": null
-        }
-    },
-    {
-        "model": "departments.department",
-        "pk": 5,
-        "fields": {
-            "name": "Operaciones",
-            "physical_ubication": "Edificio E, Planta Baja",
-            "area_responsible": null
-        }
-    },
-    {
-        "model": "departments.department",
-        "pk": 6,
-        "fields": {
-            "name": "Ventas",
-            "physical_ubication": "Edificio F, Segundo Piso",
-            "area_responsible": null
-        }
+  {
+    "model": "departments.department",
+    "pk": 1,
+    "fields": {
+      "name": "Recursos Humanos",
+      "physical_ubication": "Edificio A, Planta Baja",
+      "area_responsible": null,
+      "photo_url": "https://www.sydle.com/blog/assets/post/gestion-de-recursos-humanos-61240605b060f5760424b13e/human-resources-management.jpg"
     }
+  },
+  {
+    "model": "departments.department",
+    "pk": 2,
+    "fields": {
+      "name": "Tecnología de la Información",
+      "physical_ubication": "Edificio B, Segundo Piso",
+      "area_responsible": null,
+      "photo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAIXde9EY0huBFDH1YnOEx1XPpln3XMyz2gQ&s"
+    }
+  },
+  {
+    "model": "departments.department",
+    "pk": 3,
+    "fields": {
+      "name": "Finanzas",
+      "physical_ubication": "Edificio C, Primer Piso",
+      "area_responsible": null,
+      "photo_url": "https://www.bbva.com/wp-content/uploads/2022/06/BBVA-finanzas-personales-y-corporativas.jpg"
+    }
+  },
+  {
+    "model": "departments.department",
+    "pk": 4,
+    "fields": {
+      "name": "Marketing",
+      "physical_ubication": "Edificio D, Tercer Piso",
+      "area_responsible": null,
+      "photo_url": "https://cdn.prod.website-files.com/63c5e29f1b5bc83fe0af2489/6424d753f8eb7a9e69c372fc_Gantt%20Chart%20Online%20Software%20Instagantt%20Ideation%202.webp"
+    }
+  },
+  {
+    "model": "departments.department",
+    "pk": 5,
+    "fields": {
+      "name": "Operaciones",
+      "physical_ubication": "Edificio E, Planta Baja",
+      "area_responsible": null,
+      "photo_url": "https://www.obsbusiness.school/sites/obsbusiness.school/files/images/istock-514104812_1.jpg"
+    }
+  },
+  {
+    "model": "departments.department",
+    "pk": 6,
+    "fields": {
+      "name": "Ventas",
+      "physical_ubication": "Edificio F, Segundo Piso",
+      "area_responsible": null,
+      "photo_url": "https://opentix.es/wp-content/uploads/2020/03/reuquisitos-ventas.png"
+    }
+  }
 ]
