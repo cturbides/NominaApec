@@ -1,13 +1,47 @@
-{% extends 'departments/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}New Department{% endblock %}
+{% block title %}{{ form.instance.pk|yesno:"Editar,Crear" }} Departamento{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/departments/forms.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Department</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-  </form>
-  <a href="{% url 'department_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>{{ form.instance.pk|yesno:"Editar,Crear" }} Departamento</h1>
+        <a href="{% url 'department_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+
+    <div class="department-detail">
+      <img src="{{ department.photo_url }}" alt="{{ department.name }}" class="department-photo">
+      <form method="post" class="department-info">
+        {% csrf_token %}
+        <div class="info-row">
+          <label class="label" for="id_name">Nombre del departamento:</label>
+          <input type="text" name="name" id="id_name" class="value" value="{{ form.name.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_physical_ubication">Ubicación física:</label>
+          <input type="text" name="physical_ubication" id="id_physical_ubication" class="value" value="{{ form.physical_ubication.value }}">
+        </div>
+        <div class="info-row">
+          <label class="label" for="id_area_responsible">Responsable de área:</label>
+          <select name="area_responsible" id="id_area_responsible" class="value">
+            {% for option in form.area_responsible.field.queryset %}
+              <option value="{{ option.pk }}" {% if option.pk == form.area_responsible.value %}selected{% endif %}>
+                {{ option }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="actions">
+          <button type="submit" class="edit-button">Guardar</button>
+          <a href="{% url 'department_list' %}" class="cancel-button">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+

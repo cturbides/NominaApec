@@ -1,12 +1,41 @@
-{% extends 'departments/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Department Detail{% endblock %}
+{% block title %}Departamentos{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/departments/detail.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>{{ department.name }}</h1>
-  <p>Physical Ubication: {{ department.physical_ubication }}</p>
-  <p>Area Responsible: {{ department.area_responsible }}</p>
-  <a href="{% url 'department_update' department.pk %}">Edit</a>
-  <a href="{% url 'department_delete' department.pk %}">Delete</a>
-  <a href="{% url 'department_list' %}">Back to list</a>
+  <div class="detail-container">
+    <div class="main_header">
+        <h1>Departamentos</h1>
+        <a href="{% url 'department_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <div class="department-detail">
+      <img src="{{ department.photo_url }}" alt="{{ department.name }}" class="department-photo">
+      <div class="department-info">
+        <div class="info-row">
+          <span class="label">Nombre del departamento:</span>
+          <span class="value">{{ department.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Ubicación física:</span>
+          <span class="value">{{ department.physical_ubication }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Responsable de área:</span>
+          <span class="value">{{ department.area_responsible }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'department_update' department.pk %}" class="edit-button">Editar departamento</a>
+      <a href="{% url 'department_delete' department.pk %}" class="delete-button">Eliminar departamento</a>
+    </div>
+  </div>
 {% endblock %}
+

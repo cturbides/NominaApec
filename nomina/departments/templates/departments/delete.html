@@ -1,13 +1,26 @@
-{% extends 'departments/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Delete Department{% endblock %}
+{% block title %}Eliminar Departamento{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/departments/delete.css' %}" />
+{% endblock %}
 
 {% block content %}
-  <h1>Delete Department</h1>
-  <p>Are you sure you want to delete "{{ department.name }}"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-  </form>
-  <a href="{% url 'department_list' %}">Cancel</a>
+  <div class="delete-container">
+    <div class="main_header">
+        <h1>Eliminar Departamento</h1>
+        <a href="{% url 'department_list' %}" class="back-link">&lt; Volver atrás</a>
+    </div>
+    
+    <p class="confirmation-text">¿Estás seguro que deseas eliminar el departamento "{{ department.name }}"?</p>
+    
+    <form method="post" class="delete-form">
+      {% csrf_token %}
+      <button type="submit" class="delete-button">Sí, eliminar</button>
+      <a href="{% url 'department_list' %}" class="cancel-button">Cancelar</a>
+    </form>
+  </div>
 {% endblock %}
+
